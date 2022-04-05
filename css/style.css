@@ -6,6 +6,10 @@
       --color-body: #918ca4;
 }
 
+/* * {
+      margin: 0;
+} */
+
 /* ---------------------- TYPOGRAPHY -------------------------------  */
 html {
       /* 62.5% of 16 = 10px */
@@ -64,7 +68,7 @@ a {
       margin-left: 10px;
 }
 
-/* --------------------------------------- badge --------------------------------------  */
+/* ------------------------- badge -------------------------  */
 .badge {
       border-radius: 20px;
       font-size: 2rem;
@@ -87,6 +91,28 @@ a {
       font-size: 1.6rem;
 }
 
+
+/* ------------------------- List --------------------------  */
+.list {
+      list-style: none;
+      padding-left: 0;
+      color: var(--color-headings);
+}
+
+.list--inline .list__item {
+      display: inline-block;
+      margin-right: 2rem;
+}
+
+.list--tick {
+      list-style-image: url(../images/tick.svg);
+      padding-left: 3rem;
+}
+
+.list--tick .list__item {
+      padding-left: 0.5rem;
+      margin-bottom: 1rem;
+}
 
 
 
@@ -121,6 +147,11 @@ a {
 
       .badge--small {
             font-size: 1.2rem;
+      }
+
+      /* ------------------------- List --------------------------  */
+      .list--tick .list__item {
+            padding-left: 0;
       }
 };
 
