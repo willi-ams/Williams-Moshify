@@ -37,6 +37,7 @@ h2,
 h3 {
       color: var(--color-headings);
       margin-bottom: 1rem;
+      line-height: 1.1;
 }
 
 h1 {
@@ -494,7 +495,7 @@ a {
 }
 .blocked--skewed-left {
       padding-bottom: calc(var(--padding-vertical) + 4rem);
-      clip-path: polygon(0 1%, 100% 0, 100% 80%, 0 100%);
+      clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
 }
 
 /* ----------------- nav ---------------------  */
@@ -540,6 +541,22 @@ a {
       opacity: 1;
       box-shadow: 0 0 0 3px #666;
       border-radius: 5px; /* on the opacity */
+}
+
+/* ----------------- hero ---------------------  */
+.hero {
+      clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero__tagline {
+      color: #b9c3cf;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      margin: 2rem 0 5rem;  /* top and bottom margins */
+}
+
+.hero__image {
+      width: 100%;
 }
 
 
@@ -589,6 +606,15 @@ a {
             border: none;
       }
 
+      /* ----------------- nav ---------------------  */
+      .hero {
+            padding-top: 0;
+      }
+
+      .hero__content {
+            text-align: left;
+            align-self: center;
+      }
 }
 
 
