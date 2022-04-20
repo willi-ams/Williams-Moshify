@@ -4,6 +4,7 @@
       --color-accent: #ff3400;
       --color-headings: #1b0760;
       --color-body: #918ca4;
+      --color-body-darker: #5c5577;
       --color-border: #ccc;
       --border-radius: 30px;
 }
@@ -133,8 +134,17 @@ a {
       height: 40px;
 }
 
+.icon-small {
+      width: 30px;
+      height: 30px;
+}
+
 .icon--primary {
       fill: var(--color-primary);
+}
+
+.icon--white {
+      fill: #fff;
 }
 
 .icon-container {
@@ -147,6 +157,9 @@ a {
       width: 64px;
 }
 
+.icon-container--accent {
+      background: var(--color-accent);
+}
 
 /* ------------------------- buttons --------------------------  */
 .btn {
@@ -188,6 +201,11 @@ a {
 
 .btn--accent:hover {
       background: #ec3000;
+}
+
+.btn--stretched {
+      padding-left: 6rem;
+      padding-right: 6rem;
 }
 
 .btn--block {
@@ -326,8 +344,254 @@ a {
       margin-top: 1rem;
 }
 
+/* ------------------------- Quote --------------------------  */
 
-/* ---------------------- TYPOGRAPHY -------------------------------  */
+.quote {
+      font-size: 3rem;
+      font-style: italic;
+      color: var(--color-body-darker);
+      line-height: 1.3;
+}
+
+.quote__content::before {
+      content: open-quote;
+}
+.quote__content::after {
+      content: close-quote;
+}
+
+.quote__line {
+      position: relative;
+      bottom: 10px;
+}
+
+.quote__author {
+      font-size: 3rem;
+      font-weight: 500;
+      font-style: normal;
+      margin-bottom: 0;
+}
+
+.quote__company {
+      color: var(--color-headings);
+      opacity: .4;
+      font-style: normal;
+      font-size: 2rem;
+}
+
+/* ---------------------- Grid -------------------------------  */
+.grid {
+      display: grid;
+}
+
+/* ---------------------- testimonial -------------------------------  */
+.testimonial {
+      padding: 3rem;
+      overflow: visible;
+}
+
+.testimonial__image {
+      position: relative;
+}
+
+.testimonial__image > img {
+      width: 100%;
+}
+
+.testimonial__image > .icon-container {
+      position: absolute;
+      top: 3rem;
+      right: -32px;
+}
+
+/* ---------------------- callout -------------------------------  */
+.callout {
+      padding: 4rem;
+      border-radius: 5px;
+}
+
+.callout__primary {
+      background: var(--color-primary);
+      color: #fff;
+}
+
+.callout__heading {
+      color: #fff;
+      margin-top: 0;
+      font-size: 3rem;
+}
+
+.callout .btn {
+      justify-self: center;
+      align-self: center;
+}
+
+.callout__content {
+      text-align: center;
+}
+
+/* --------------- collapsible ---------------------  */
+.collapsible__header {
+      display: flex;
+      justify-content: space-between;
+}
+.collapsible__heading {
+      margin-top: 0;
+      font-size: 3rem;
+}
+.collapsible__chevron {
+      transform: rotate(-90deg);
+      transition: transform .3s;
+}
+.collapsible__content {
+      /* display: none; */
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all .3s;
+}
+.collapsible--expanded .collapsible__chevron {
+      transform: rotate(0);
+}
+.collapsible--expanded .collapsible__content {
+      /* display: block; */
+      max-height: 100vh; /* maximum of 100vh but its not going to strech more than its content */
+      overflow: visible;
+      opacity: 1;
+}
+
+/* ----------------- Blocks ---------------------  */
+.container {
+      max-width: 1140px;
+      margin: 0 auto;
+}
+
+.block {
+      --padding-vertical: 6rem;
+      padding: var(--padding-vertical) 2rem;
+}
+
+.block__header {
+      text-align: center;
+}
+
+.block__heading {
+      margin-top: 0;
+}
+
+.block--dark {
+      background: #000;
+      color: #7b858b;
+}
+
+.block--dark .block__heading {
+      color: #fff;
+}
+
+.blocked--skewed-right {
+      padding-bottom: calc(var(--padding-vertical) + 4rem);
+      clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 80%);
+}
+.blocked--skewed-left {
+      padding-bottom: calc(var(--padding-vertical) + 4rem);
+      clip-path: polygon(0 1%, 100% 0, 100% 80%, 0 100%);
+}
+
+/* ----------------- nav ---------------------  */
+.nav {
+      background: #000;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0 1rem;
+}
+
+.nav__brand {
+      transform: translateY(5px);
+}
+
+.nav__list {
+      width: 100%;
+      margin: 0;
+}
+
+.nav__item {
+      padding: 0.5rem 2rem;
+      border-bottom: 1px solid #222;
+}
+
+.nav__item > a {
+      color: #d2d0db;
+      transition: color .3s;
+}
+
+.nav__item > a:hover {
+      color: #fff;
+}
+
+.nav__toggler {
+      opacity: .5;
+      transition: box-shadow .15s;
+      cursor: pointer;
+}
+
+.nav.collapsible--expanded .nav__toggler {
+      opacity: 1;
+      box-shadow: 0 0 0 3px #666;
+      border-radius: 5px; /* on the opacity */
+}
+
+
+
+@media screen and (min-width: 768px) {
+      /* ---------------------- Grid -------------------------------  */
+      .grid--1x2 {
+            grid-template-columns: repeat(2, 1fr);
+      }
+
+      /* ---------------------- testimonial -------------------------------  */
+      .testimonial .quote,
+      .testimonial .quote__author {
+            font-size: 2.4rem;
+      }
+
+      .testimonial .quote {
+            margin-left: 6rem;
+      }
+      /* ---------------------- testimonial -------------------------------  */
+      .callout .grid--1x2 {
+            grid-template-columns: 1fr min-content;
+      }
+      
+      .callout__content {
+            text-align: left;
+      }
+      .callout .btn {
+            justify-self: start;
+            margin: 0 2rem;
+      }
+
+      /* ----------------- nav ---------------------  */
+      .nav__toggler {
+            display: none;
+      }
+
+      .nav__list {
+            width: auto;
+            display: flex;
+            font-size: 1.6rem;
+            max-height: 100%;
+            opacity: 1;
+      }
+
+      .nav__item {
+            border: none;
+      }
+
+}
+
+
 @media screen and (min-width: 1024px) {
       body {
             font-size: 1.8rem;
@@ -373,5 +637,23 @@ a {
       /* ------------------------- inputs --------------------------  */
       .input {
             font-size: 1.5rem;
+      }
+
+      /* ------------------------- inputs --------------------------  */
+      .quote {
+            font-size: 2rem;
+      }
+
+      .quote__author {
+            font-size: 2.4rem;
+      }
+
+      .quote__company {
+            font-size: 1.6rem;
+      }
+
+      /* ---------------------- Grid -------------------------------  */
+      .grid--1x3 {
+            grid-template-columns: repeat(3, 1fr);
       }
 }
