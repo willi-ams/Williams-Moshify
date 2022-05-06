@@ -20,6 +20,11 @@
 } */
 
 /* ---------------------- TYPOGRAPHY -------------------------------  */
+::selection {
+      background-color: var(--color-primary);
+      color: #fff;
+}
+
 html {
       /* 62.5% of 16 = 10px */
       font-size: 62.5%;
@@ -51,6 +56,7 @@ h2 {
 
 h3 {
       font-size: 3rem;
+      font-weight: 500;
 }
 
 p {
@@ -110,7 +116,6 @@ a {
 .list {
       list-style: none;
       padding-left: 0;
-      color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -121,6 +126,7 @@ a {
 .list--tick {
       list-style-image: url(../images/tick.svg);
       padding-left: 3rem;
+      color: var(--color-headings);
 }
 
 .list--tick .list__item {
@@ -169,12 +175,20 @@ a {
       cursor: pointer;
       font-size: 1.8rem;
       font-weight: 600;
-      padding: 2rem 3rem;
+      outline: 0;
+      padding: 2rem 4vw;
       text-align: center;
       text-transform: uppercase;
       white-space: nowrap;
       /* text shoudnt wrap to nxt line */
       margin: 1rem 0;
+}
+
+.btn .icon {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+      vertical-align: middle;  /* affects only inline boxes elements */
 }
 
 .btn--primary {
@@ -252,7 +266,8 @@ a {
 .input-group .input {
       border: 0;
       flex-grow: 1;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem 2rem;
+      width: 0;
 }
 
 .input-group .btn {
@@ -280,11 +295,17 @@ a {
       color: #fff;
 }
 
+.card--primary .badge--primary {
+      background: #126de4; 
+}
 .card--secondary .badge--secondary {
       background: #02cdf1;
 }
 
 /* ------------------------- plan --------------------------  */
+.plan {
+      transition: transform .2s ease-out;
+}
 .plan__name {
       color: #fff;
       margin: 0;
@@ -314,6 +335,10 @@ a {
       margin-bottom: 2rem;
 }
 
+.plan--popular {
+      transform: scale(1.1);
+}
+
 .plan--popular .card__header {
       position: relative;
 }
@@ -327,10 +352,18 @@ a {
       right: 5%;
 }
 
+.plan:hover {
+      transform: scale(1.05);
+}
+.plan--popular:hover {
+      transform: scale(1.15);
+}
+
 /* ------------------------- media --------------------------  */
 
 .media {
       display: flex;
+      margin-bottom: 4rem;
 }
 
 .media__title {
@@ -474,6 +507,7 @@ a {
 
 .block__header {
       text-align: center;
+      margin-bottom: 4rem;
 }
 
 .block__heading {
@@ -485,18 +519,51 @@ a {
       color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
       color: #fff;
 }
 
 .blocked--skewed-right {
       padding-bottom: calc(var(--padding-vertical) + 4rem);
-      clip-path: polygon(0 1%, 100% 0, 100% 100%, 0 80%);
+      clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 90%);
 }
 .blocked--skewed-left {
       padding-bottom: calc(var(--padding-vertical) + 4rem);
-      clip-path: polygon(0 0%, 100% 0, 100% 80%, 0 100%);
+      clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
 }
+
+/*--------------- DOMAIN BLOCK -------------------*/
+.block-domain .input-group {
+      box-shadow: 0 0 30px 20px #e6ebee;
+      border: 0;
+      margin: 4rem auto;
+      max-width: 670px;
+}
+
+.block-domain__prices {
+      color: var(--color-headings);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 6rem);
+      justify-items: center;
+      font-size: 2rem;
+      font-weight: 600;
+      max-width: 700px;
+      margin: 0 auto;
+}
+
+/*--------------- PLANS BLOCK -------------------*/
+.block-plans .grid {
+      gap: 8rem 4rem;
+}
+
+.block-plans .card {
+      max-width: 500px;
+      margin: 0 auto;
+}
+
 
 /* ----------------- nav ---------------------  */
 .nav {
@@ -544,10 +611,6 @@ a {
 }
 
 /* ----------------- hero ---------------------  */
-.hero {
-      clip-path: polygon(0 0%, 100% 0, 100% 90%, 0 100%);
-}
-
 .hero__tagline {
       color: #b9c3cf;
       font-size: 2rem;
@@ -559,6 +622,73 @@ a {
       width: 100%;
 }
 
+/* ----------------- FEATURE ---------------------  */
+.feature {
+      gap: 4rem 2rem;
+      margin: 12rem 0;
+}
+
+.feature:first-of-type {
+      margin-top: 6rem;
+}
+
+.feature__heading {
+      margin: 1rem 0;
+}
+
+.feature__image {
+      width: 100%;
+}
+
+/* ----------------- BLOCK SHOWCASE ---------------------  */
+.block-showcase__image > img {
+      width: 100%;
+}
+
+/* ----------------- FOOTER ---------------------  */
+.footer {
+      background-color: #232323;
+}
+
+.footer a {
+      color: #777;
+      transition: color .3s;
+      /* white-space: nowrap; */
+}
+
+.footer a:hover {
+      color: #fff;
+}
+
+.footer__section {
+      padding: 2rem;
+      border-bottom: 1px solid #393939;
+}
+
+.footer__section .list {
+      margin: 0;
+}
+
+.footer__heading {
+      text-transform: uppercase;
+      font-weight: 600;
+}
+
+.footer__brand {
+      margin-top: 5rem;
+      text-align: center;
+}
+
+.footer__brand img {
+      width: 100%;
+      max-width: 230px;
+}
+
+.footer__copyright {
+      font-size: 2.1rem;
+      color: #fff;
+      opacity: 0.3;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -615,6 +745,61 @@ a {
             text-align: left;
             align-self: center;
       }
+
+      /*--------------- DOMAIN BLOCK -------------------*/
+      .block-domain__prices {
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      }
+
+      /* ----------------- FEATURE ---------------------  */
+      .feature:nth-of-type(even) .feature__content {
+            order: 2;
+      }
+
+      /* ----------------- BLOCK SHOWCASE ---------------------  */
+      .block-showcase .grid {
+            grid-template-columns: 50% 50%;
+      }
+
+      .block-showcase__image {
+            justify-self: end;
+      }
+      .block-showcase__image > img {
+            width: auto;
+            max-width: 700px;
+      }
+
+      /* ----------------- FOOTER ---------------------  */
+      .footer__sections {
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+      }
+
+      .footer .collapsible__chevron {
+            display: none;
+      }
+
+      .footer .collapsible__content {
+            max-height: 100%;
+            opacity: 1;
+      }
+
+      .footer__brand {
+            order: -1;
+            margin-top: 1rem;
+      }
+
+      .footer__copyright {
+            font-size: 1.5rem;
+      }
+
+      .footer__section {
+            border: 0;
+      }
+      
+      .footer__heading {
+            font-size: 1.6rem;
+      }
+      
 }
 
 
